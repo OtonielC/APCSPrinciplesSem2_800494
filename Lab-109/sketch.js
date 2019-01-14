@@ -3,15 +3,20 @@
 //Sorting
 
 
-var x = [ 5, 4, 6, 3, 7, 2, 8, 1, 9]
+var x = []
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
+  for(var i = 0; i < 10; i++){
+    x[i] = round(random(5))
+  }
+  insertSort();
+  // mySort();
+  // bubbleSort(x);
   // selectionSort(x);
-  bubbleSort(x);
 }
 
 //  The draw function is called @ 30 fps
@@ -27,7 +32,18 @@ function swap(items, firstIndex, secondIndex){
 
 
 
-
+function mySort(){
+  n = x.length;
+  for(var i = n; i >= 0; i--){
+    for(var j = 0; j < i; j++){
+      if(x[j-1] > x[j]){
+        swap(x, j-1, j)
+      }
+    }
+    console.log(x);
+  }
+  return x;
+}
 // function bubbleSort(x){
 //   var n = x.length
 //   for(var y = n; i >= 0; i--){
@@ -77,4 +93,18 @@ function selectionSort(items){
         console.log(x);
     }
     return items;
+}
+
+
+
+function insertSort(){
+  for(var i = 1; i < x.length; i++){
+    for(var j = i; j > 0; j--){
+      if(x[j] < x[j-1]){
+        swap(x, j, j-1)
+      }
+    }
+    console.log(x);
+  }
+  return x;
 }
