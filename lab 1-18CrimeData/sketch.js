@@ -20,20 +20,30 @@ function setup() {
   bubbleSort(txt);
 }
 
-//  The draw function is called @ 30 fps
-function bubbleSort(txt){
-    n = txt.length;
-    for(var i = n-1; i >= 1; i--){
-      for(var x = 0; x < i; x++){
-        //i have to assign one of these numbers to a different variable so it is not
-        //lost and then i make the two txt variables equal
-        //then i change the one i need to the save variable.
-        if(txt[x-1] > txt[x]){
-          savedvariable = txt[x];
-          txt[x] = txt[x-1];
-          txt[x-1] = savedVariable;
-          console.log(txt)
-        }
+function swap(items, firstIndex, secondIndex){
+  var temp = items[firstIndex];
+  items[firstIndex] = items[secondIndex];
+  items[secondIndex] = temp;
+  numofswaps+=1
+}
+
+
+function selectionSort(items){
+  var len = items.length,
+  min;
+  for (var i = 0; i < len; i++){
+    min = i;
+    for(var j = i + 1; j < len; j++){
+      numofcompares+=1
+      if (items[j] < items[min]){
+        numofcompares+=1
+        min = j;
       }
+    }tygrdcs
+    if (i != min){
+      swap(items, i, min);
     }
+    console.log(x);
+  }
+  return items;
 }
