@@ -3,47 +3,31 @@
 //APCS
 //10/23
 
-var savedVariable;
-var txt;
-function preload(){
-  txt = loadStrings("words.txt");
-  console.log("txt loaded");
-  console.log(txt);
-}
+
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  preload();
-  bubbleSort(txt);
+  insertSort();
 }
 
 function swap(items, firstIndex, secondIndex){
   var temp = items[firstIndex];
   items[firstIndex] = items[secondIndex];
   items[secondIndex] = temp;
-  numofswaps+=1
 }
 
 
-function selectionSort(items){
-  var len = items.length,
-  min;
-  for (var i = 0; i < len; i++){
-    min = i;
-    for(var j = i + 1; j < len; j++){
-      numofcompares+=1
-      if (items[j] < items[min]){
-        numofcompares+=1
-        min = j;
+function insertSort(){
+  for(var i = 1; i < data.crime.length-1; i++){
+    for(var j = i; j > 0; j--){
+      if(data.crime[j].Assault < data.crime[j-1].Assault){
+        swap(data.crime, j, j-1)
       }
-    }tygrdcs
-    if (i != min){
-      swap(items, i, min);
     }
-    console.log(x);
+    console.log(data.crime);
   }
-  return items;
+  return data.crime;
 }
