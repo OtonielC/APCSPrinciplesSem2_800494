@@ -21,13 +21,13 @@ function swap(items, firstIndex, secondIndex){
 
 
 function insertSort(){
-  for(var i = 1; i < data.crime.length-1; i++){
-    for(var j = i; j > 0; j--){
-      if(data.crime[j].Assault < data.crime[j-1].Assault){
+  for(var i = data.crime.length; i > 0; i--){
+    for(var j = 1; j < i; j++){
+      if(data.crime[j].Assault > data.crime[j-1].Assault){
         swap(data.crime, j, j-1)
       }
     }
-    console.log(data.crime);
   }
+  console.log(data.crime);
   return data.crime;
 }
