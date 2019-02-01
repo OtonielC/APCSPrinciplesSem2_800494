@@ -2,7 +2,7 @@
 //Otoniel Carreon
 //APCS
 //10/23
-
+var run = false;
 
 //  The setup function function is called once when your program begins
 function setup() {
@@ -10,8 +10,16 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  insertSort();
+  run = true;
+  assaultSort();
+  murderSort();
 }
+
+function draw(){
+  fill(255);
+  rect(25,25,50,50)
+}
+
 
 function swap(items, firstIndex, secondIndex){
   var temp = items[firstIndex];
@@ -20,7 +28,7 @@ function swap(items, firstIndex, secondIndex){
 }
 
 
-function insertSort(){
+function assaultSort(){
   for(var i = data.crime.length; i > 0; i--){
     for(var j = 1; j < i; j++){
       if(data.crime[j].Assault > data.crime[j-1].Assault){
@@ -31,3 +39,20 @@ function insertSort(){
   console.log(data.crime);
   return data.crime;
 }
+
+
+function murderSort(){
+  for(var i = data.crime.length; i > 0; i--){
+    for(var j = 1; j < i; j++){
+      if(data.crime[j].Murder > data.crime[j-1].Murder){
+        swap(data.crime, j, j-1)
+      }
+    }
+  }
+  console.log(data.crime);
+  return data.crime;
+}
+
+// function mousePressed(){
+//   if()
+// }
