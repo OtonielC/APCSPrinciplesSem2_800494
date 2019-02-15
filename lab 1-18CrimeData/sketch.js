@@ -2,7 +2,7 @@
 //Otoniel Carreon
 //APCS
 //10/23
-var run = true;
+var q = 0;
 
 //  The setup function function is called once when your program begins
 function setup() {
@@ -10,16 +10,12 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
+  murder();
 }
 
 function draw(){
-    if(run === true){
-      if(keyCode === ENTER){
-        textSize(100);
-        text('Hi',500,500)
-      }
-    }
-  }
+
+}
 
 function swap(items, firstIndex, secondIndex){
   var temp = items[firstIndex];
@@ -36,7 +32,6 @@ function assaultSort(){
       }
     }
   }
-  console.log(data.crime);
   return data.crime;
 }
 
@@ -49,6 +44,15 @@ function murderSort(){
       }
     }
   }
-  console.log(data.crime);
   return data.crime;
+}
+
+
+function murder(){
+  for(var i = 0; i < data.crime.length; i++){
+    murderSort();
+    fill(255)
+    rect(100 ,q , data.crime[i].Murder*10, 15)
+    q += 15
+  }
 }
