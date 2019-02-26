@@ -2,8 +2,8 @@
 //Otoniel Carreon
 //APCS
 //10/23
-var q = 0;
-
+var q = 25;
+var l = .75
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -49,10 +49,14 @@ function murderSort(){
 
 
 function murder(){
+  fill(255)
+  textSize(25)
+  text('ASSAULT SORT', 50,50)
   for(var i = 0; i < data.crime.length; i++){
-    murderSort();
+    assaultSort();
     fill(255)
-    rect(100 ,q , data.crime[i].Murder*10, 15)
+    rect(200 ,q , data.crime[i].Assault*l, 15)
     q += 15
+
   }
 }
