@@ -2,7 +2,7 @@ function ball (loc, vel, radius, col,acc){
   this.loc = loc;
   this.vel = vel;
   this.rad = radius;
-  this.col = col;
+  this.col = color(random(255),random(255),random(255),random(255));
   this.acc = acc;
 
   this.run = function(){
@@ -43,6 +43,12 @@ function ball (loc, vel, radius, col,acc){
 
   this.render = function(){
     fill(this.col);
-    ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
+    // ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
+    if(toggle === true){
+      stroke(this.col)
+      for(var i = 1; i < balls.length; i++){
+        line(this.loc.x, this.loc.y, balls[i-1].loc.x, balls[i-1].loc.y)
+      }
+    }
   }
 }
