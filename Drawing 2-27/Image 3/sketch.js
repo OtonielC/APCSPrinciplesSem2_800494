@@ -1,4 +1,4 @@
-var b1;
+// var b1;
 var balls = []
 var toggle = true
 //  This is a comment
@@ -16,7 +16,7 @@ function setup() {
 function draw() {
   if(toggle === true){
     background(20,20,20,5);
-    b1.run();
+    // b1.run();
     for(var i = 0; i < balls.length; i++){
       balls[i].run();
     }

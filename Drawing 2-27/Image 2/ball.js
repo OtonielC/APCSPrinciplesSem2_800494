@@ -47,7 +47,7 @@ function ball (loc, vel, radius, col,acc){
     if(toggle === true){
       stroke(this.col)
       for(var i = 1; i < balls.length; i++){
-        strokeWeight(100)
+        strokeWeight(50)
         line(this.loc.x, this.loc.y, balls[i-1].loc.x, balls[i-1].loc.y)
       }
     }

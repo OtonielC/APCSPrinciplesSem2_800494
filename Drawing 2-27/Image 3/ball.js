@@ -45,16 +45,23 @@ function ball (loc, vel, radius, col,acc){
     fill(this.col);
     // ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
     if(toggle === true){
-      stroke(this.col)
-      for(var i = 1; i < balls.length; i++){
-        ellipse(this.loc.x, this.loc.y, 50, 50)
-        if(balls[i].loc.x > 100 &&
-          balls[i].loc.x < 700 &&
-          balls[i].loc.y < 100 &&
-          balls[i].loc.y > 700){
-            fill(255)
-          }
+      stroke(this.col);
+      ellipse(this.loc.x, this.loc.y, 25, 25)
+      if(this.loc.x > 400){
+          fill(255);
         }
+      else{
+        fill(0,0,255);
+      }
+      // for(var i = 1; i < balls.length; i++){
+      //   ellipse(this.loc.x, this.loc.y, 25, 25)
+      //   if(balls[i].loc.x > 400){
+      //       fill(255)
+      //     }
+      //   else{
+      //     fill(0,0,255)
+      //   }
+      //   }
       }
     }
   }
