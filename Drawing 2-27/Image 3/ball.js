@@ -1,8 +1,7 @@
-function ball (loc, vel, radius, col,acc){
+function ball (loc, vel, radius,acc){
   this.loc = loc;
   this.vel = vel;
   this.rad = radius;
-  this.col = color(random(255),random(255),random(255),random(255));
   this.acc = acc;
 
   this.run = function(){
@@ -42,17 +41,20 @@ function ball (loc, vel, radius, col,acc){
 
 
   this.render = function(){
-    fill(this.col);
+    // fill(this.col);
     // ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
     if(toggle === true){
-      stroke(this.col);
-      ellipse(this.loc.x, this.loc.y, 25, 25)
+      //stroke(this.col);
       if(this.loc.x > 400){
-          fill(255);
+        //console.log("greater than 400");
+          fill(0,255,0);
         }
-      else{
+      if(this.loc.x < 400){
+        //console.log("less than 400");
+        //_color = color(0,0,255);
         fill(0,0,255);
       }
+      ellipse(this.loc.x, this.loc.y, 15, 15)
       // for(var i = 1; i < balls.length; i++){
       //   ellipse(this.loc.x, this.loc.y, 25, 25)
       //   if(balls[i].loc.x > 400){

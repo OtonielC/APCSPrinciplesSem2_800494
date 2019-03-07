@@ -6,17 +6,15 @@ var toggle = true
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(20, 20, 20, 5);
+  background(20, 20, 20);
   fill(200, 30, 150);
-  loadBalls(30);
-  b1 = new ball(createVector(width/2,height/2), createVector(0,0), 25, color(255,0,0))
+  loadBalls(50);
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   if(toggle === true){
-    background(20,20,20,5);
-    // b1.run();
+    background(20,20,20);
     for(var i = 0; i < balls.length; i++){
       balls[i].run();
     }
@@ -24,12 +22,12 @@ function draw() {
 }
 function loadBalls(numBalls){
   for(var i = 0; i < numBalls; i++){
-    var loc = createVector(400, 400);
+    var loc = createVector(0,0);
+    // var vel = createVector(5+5*i,5+5*i);
     var vel = createVector(random(-30.0, 30.0), random(-30.0, 30.0));
     var radius = (20);
-    var col = color(random(255), random(255), random(255));
     var acc = createVector(0,.01)
-    balls.push(new ball(loc, vel, radius, col, acc));
+    balls.push(new ball(loc, vel, radius, acc));
   }
 }
 function mousePressed(){
