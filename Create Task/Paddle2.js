@@ -17,8 +17,8 @@ function Paddle2(loc, col, vel){
 //and then the paddle will reset.
 //i wil also lerp the paddle to the mouse so the locations are the same but lagged.
   this.update = function(){
-       var mouseloc = createVector(mouseX, 600);
-       this.loc = p5.Vector.lerp(this.loc, mouseloc, .2);
+       var mouseloc = createVector(mouseX, 20);
+       this.loc = p5.Vector.lerp(this.loc, mouseloc, .5);
 }
 this.checkEdges = function(){
   if(this.loc.x < 0) this.vel.x = -this.vel.x;
@@ -29,6 +29,6 @@ this.checkEdges = function(){
 //this function will render the shape of the object which will be a paddle or a rectangle.
   this.render = function(){
     fill(this.col);
-    rect(this.loc.x, this.loc.y-100, 140, 30);
+    rect(this.loc.x, this.loc.y, 140, 30);
   }
 }

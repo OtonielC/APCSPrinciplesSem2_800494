@@ -3,7 +3,7 @@
 //Otoniel Carreon
 //10/4/18
 var nextround = 4;
-var number = 20;
+var number = 1;
 var balls = [];
 var paddle;
 var stage = 1;
@@ -16,7 +16,7 @@ function setup() {
   fill(200, 30, 150);
   loadballs(number);
   paddle = new Paddle(createVector(5,10), 33, color(255,255,255));
-  paddle2 = new Paddle2(createVector(50,100), 33, color(255,255,255));
+  paddle2 = new Paddle2(createVector(5,10), 33, color(255,255,255));
 }
 
 //  The draw function is called @ 30 fps
@@ -24,6 +24,7 @@ function setup() {
 function draw() {
   background(20, 20, 20);
   paddle.run();
+  paddle2.run();
   numberofballs = 'there are ' + balls.length + ' balls'
   for(var i = 0 ; i < balls.length; i++){
     balls[i].run();
@@ -66,10 +67,10 @@ function draw() {
 //location, velocity, color, radius, and acceleration
 function loadballs(number){
   for(var i = 0; i < number; i++){
-    var loc = createVector(random(width), 1);
-    var vel = createVector(random(-3.0, 3.0), random(-3.0, 3.0));
+    var loc = createVector(random(width), 400);
+    var vel = createVector(30);
     var col = color(random(255), random(255), random(255));
-    var rad = (2);
+    var rad = (20);
     var b = new ball(loc, vel, col, rad);
     balls.push(b)
   }

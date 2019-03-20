@@ -8,7 +8,7 @@ function ball (loc, vel, col, rad){
   this.rad = rad;
   this.w = 140;
   this.h = 30;
-  this.acc = createVector(0,.1);
+  // this.acc = createVector(0,.1);
   this.iscoliding = false;
   this.newround = false;
   //these are all of the functions being called by one function to
@@ -22,7 +22,6 @@ function ball (loc, vel, col, rad){
   //the code will be able to detect when the balls touch the Paddle
   //and then the balls will reset and multiply
   this.update = function(){
-    this.vel.add(this.acc);
     this.loc.add(this.vel);
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < paddle.loc.x + 140 &&
@@ -43,6 +42,6 @@ function ball (loc, vel, col, rad){
     //this function will render the shape of the object which will be a ball or an ellipse.
     this.render = function(){
       fill(this.col);
-      triangle(this.loc.x, this.loc.y, this.loc.x +100, this.loc.y+100, 5,5);
+      ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
     }
   }
