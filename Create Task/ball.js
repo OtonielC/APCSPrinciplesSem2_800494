@@ -23,6 +23,7 @@ function ball (loc, vel, col, rad){
   //and then the balls will reset and multiply
   this.update = function(){
     this.loc.add(this.vel);
+    this.vel.add(this.acc)
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < paddle.loc.x + 140 &&
       this.loc.y > paddle.loc.y &&

@@ -67,7 +67,7 @@ function draw() {
 //location, velocity, color, radius, and acceleration
 function loadballs(number){
   for(var i = 0; i < number; i++){
-    var loc = createVector(random(width), 400);
+    var loc = createVector(random(width), random(height));
     var vel = createVector(30);
     var col = color(random(255), random(255), random(255));
     var rad = (20);
