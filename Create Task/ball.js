@@ -8,7 +8,7 @@ function ball (loc, vel, col, rad){
   this.rad = rad;
   this.w = 140;
   this.h = 30;
-  // this.acc = createVector(0,.1);
+  this.acc = createVector(0,.1);
   this.iscoliding = false;
   this.newround = false;
   //these are all of the functions being called by one function to
