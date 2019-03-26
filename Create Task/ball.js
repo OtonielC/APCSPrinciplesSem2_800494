@@ -8,7 +8,6 @@ function ball (loc, vel, col, rad){
   this.rad = rad;
   this.w = 140;
   this.h = 30;
-  this.acc = createVector(.1,.1);
   this.iscoliding = false;
   this.newround = false;
   //these are all of the functions being called by one function to
@@ -23,12 +22,12 @@ function ball (loc, vel, col, rad){
   //and then the balls will reset and multiply
   this.update = function(){
     this.loc.add(this.vel);
-    this.vel.add(this.acc)
+    // this.vel.add(this.acc)
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < paddle.loc.x + 140 &&
       this.loc.y > paddle.loc.y &&
       this.loc.y < paddle.loc.y + 30){
-        this.iscoliding =  true;
+        this.vel = this.vel*-1
         }
     }
 

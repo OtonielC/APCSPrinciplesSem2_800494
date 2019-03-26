@@ -13,7 +13,7 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
-  fill(200, 30, 150);
+  fill(200, 150,10);
   loadballs(number);
   paddle = new Paddle(createVector(5,10), 33, color(255,255,255));
   paddle2 = new Paddle2(createVector(5,10), 33, color(255,255,255));
@@ -68,7 +68,7 @@ function draw() {
 function loadballs(number){
   for(var i = 0; i < number; i++){
     var loc = createVector(random(width), random(height));
-    var vel = createVector(30);
+    var vel = createVector(10,10);
     var col = color(random(255), random(255), random(255));
     var rad = (20);
     var b = new ball(loc, vel, col, rad);
