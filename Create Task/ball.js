@@ -27,7 +27,7 @@ function ball (loc, vel, col, rad){
       this.loc.x < paddle.loc.x + 140 &&
       this.loc.y > paddle.loc.y &&
       this.loc.y < paddle.loc.y + 30){
-        this.vel = this.vel*-1
+        this.vel.y -= this.vel.y
         }
     }
 
