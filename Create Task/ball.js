@@ -26,22 +26,35 @@ function ball (loc, vel, col, rad){
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < paddle.loc.x + 140 &&
       this.loc.y > paddle.loc.y &&
-      this.loc.y < paddle.loc.y + 30){
-        this.vel.y -= this.vel.y
+      this.loc.y < paddle.loc.y + 30 &&
+      this.vel.y > 0){
+        this.vel.y = -this.vel.y
+        score+=1
+      }
+      if(this.loc.x > paddle2.loc.x &&
+        this.loc.x < paddle2.loc.x + 140 &&
+        this.loc.y > paddle2.loc.y &&
+        this.loc.y < paddle2.loc.y + 30){
+          this.vel.y = -this.vel.y
+          score+=1
         }
-    }
+      }
 
-    //the check edges function will set the speed and will also make sure that the balls
-    //dont exit the area that the game is playing in.
-    this.checkEdges = function(){
-      if(this.loc.x < 0) this.vel.x = -this.vel.x;
-      if(this.loc.x > width) this.vel.x = -this.vel.x;
-      if(this.loc.y < 0) this.vel.y = -this.vel.y;
-      if(this.loc.y > height) this.vel.y = -this.vel.y;
+      //the check edges function will set the speed and will also make sure that the balls
+      //dont exit the area that the game is playing in.
+      this.checkEdges = function(){
+        if(this.loc.x < 0) this.vel.x = -this.vel.x;
+        if(this.loc.x > width) this.vel.x = -this.vel.x;
+        if(this.loc.y < 0){
+          endgame = true;
+        }
+        if(this.loc.y > height){
+          endgame = true;
+        }
+      }
+      //this function will render the shape of the object which will be a ball or an ellipse.
+      this.render = function(){
+        fill(this.col);
+        ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
+      }
     }
-    //this function will render the shape of the object which will be a ball or an ellipse.
-    this.render = function(){
-      fill(this.col);
-      ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
-    }
-  }

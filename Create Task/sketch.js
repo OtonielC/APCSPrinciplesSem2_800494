@@ -8,6 +8,7 @@ var balls = [];
 var paddle;
 var stage = 1;
 var score = 0;
+var endgame = false;
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -53,7 +54,7 @@ function draw() {
   text(numberofballs, 10, 30);
   fill(255)
   text('its round ' + stage + '.', 10, 60);
-  if(balls.length == 0 && score > 0){
+  if(endgame === true){
     fill(255,0,0);
     text('GAME OVER! Your score was ' + score, 350, 400);
   }
@@ -61,14 +62,23 @@ function draw() {
     fill(255,0,0);
     text('GAME OVER! Your score was ' + score, 350, 400);
   }
+  function endScreen(){
+    if(endgame === true){
+      for(var i = 0; i < balls.length; i++){
+        ball.loc = 2893465,2389456
+        paddle.loc = 3845,23562
+        paddle2.loc = 1245235,23542354
+      }
+    }
+  }
 }
 //this function will load the amount of balls into the array balls[]
 //then it will set the variables inside of the balls so each will have
 //location, velocity, color, radius, and acceleration
 function loadballs(number){
   for(var i = 0; i < number; i++){
-    var loc = createVector(random(width), random(height));
-    var vel = createVector(10,10);
+    var loc = createVector(200,200);
+    var vel = createVector(6,6);
     var col = color(random(255), random(255), random(255));
     var rad = (20);
     var b = new ball(loc, vel, col, rad);
