@@ -16,8 +16,8 @@ function setup() {
   background(20, 20, 20);
   fill(200, 150,10);
   loadballs(number);
-  paddle = new Paddle(createVector(5,10), 33, color(255,255,255));
-  paddle2 = new Paddle2(createVector(5,10), 33, color(255,255,255));
+  paddle = new Paddle(createVector(5,10), 33, color(255));
+  paddle2 = new Paddle2(createVector(5,10), 33, color(255));
 }
 
 //  The draw function is called @ 30 fps
@@ -30,38 +30,36 @@ function draw() {
   for(var i = 0 ; i < balls.length; i++){
     balls[i].run();
   }
-  for(var i = balls.length - 1; i >= 0; i--){
-    if(balls[i].iscoliding === true){
-      //this code checks if the velocity of the balls is negative(going up) or positive(going down).
-      if(balls[i].vel.y < 0){
-        //the next round has to begin and the code has to add balls.
-        //I have to chaqnge the score so that it equals the next amount of balls
-        if(nextround > 0){
-          number = number + 5;
-          stage = stage + 1
-          nextround = nextround - 1
-          balls = []
-          loadballs(number)
-        }
-      }
-      balls.splice(i,1);
-      score = score + 1
-    }
-  }
+  // for(var i = balls.length - 1; i >= 0; i--){
+  //   if(balls[i].iscoliding === true){
+  //     //this code checks if the velocity of the balls is negative(going up) or positive(going down).
+  //     if(balls[i].vel.y < 0){
+  //       //the next round has to begin and the code has to add balls.
+  //       //I have to chaqnge the score so that it equals the next amount of balls
+  //       if(nextround > 0){
+  //         number = number + 5;
+  //         stage = stage + 1
+  //         nextround = nextround - 1
+  //         balls = []
+  //         loadballs(number)
+  //       }
+  //     }
+  //     balls.splice(i,1);
+  //     score = score + 1
+  //   }
+  // }
   fill(255);
   text('Your Score is ' + score,10,90)
   fill(255);
-  text(numberofballs, 10, 30);
-  fill(255)
   text('its round ' + stage + '.', 10, 60);
   if(endgame === true){
     fill(255,0,0);
     text('GAME OVER! Your score was ' + score, 350, 400);
   }
-  if(nextround == 5 && balls.length > 0){
-    fill(255,0,0);
-    text('GAME OVER! Your score was ' + score, 350, 400);
-  }
+  // if(nextround == 5 && balls.length > 0){
+  //   fill(255,0,0);
+  //   text('GAME OVER! Your score was ' + score, 350, 400);
+  // }
   function endScreen(){
     if(endgame === true){
       for(var i = 0; i < balls.length; i++){
