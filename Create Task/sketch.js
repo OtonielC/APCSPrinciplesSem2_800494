@@ -9,6 +9,7 @@ var paddle;
 var stage = 1;
 var score = 0;
 var endgame = false;
+var startgame = true;
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -16,6 +17,7 @@ function setup() {
   background(20, 20, 20);
   fill(200, 150,10);
   loadballs(number);
+  //i create two paddles. One on the top and one on the bottom
   paddle = new Paddle(createVector(5,10), 33, color(255));
   paddle2 = new Paddle2(createVector(5,10), 33, color(255));
 }
@@ -23,49 +25,54 @@ function setup() {
 //  The draw function is called @ 30 fps
 //Here im going to call the paddle
 function draw() {
-  background(20, 20, 20);
-  paddle.run();
-  paddle2.run();
-  numberofballs = 'there are ' + balls.length + ' balls'
-  for(var i = 0 ; i < balls.length; i++){
-    balls[i].run();
+  if(startgame === true){
+    background(0)
+    fill(255);
+    rect(100,100,600,600)
+    fill(200,0,0);
+    rect(200,200,400,400)
+    textSize(30)
+    fill(0)
+    text('Press ENTER to begin!!',250 ,400)
+    if(keyCode === ENTER){
+      background(20, 20, 20);
+      paddle.run();
+      paddle2.run();
+      points();
+      // levelSpeed();
+      numberofballs = 'there are ' + balls.length + ' balls'
+      for(var i = 0 ; i < balls.length; i++){
+        balls[i].run();
+      }
+    }
   }
-  // for(var i = balls.length - 1; i >= 0; i--){
-  //   if(balls[i].iscoliding === true){
-  //     //this code checks if the velocity of the balls is negative(going up) or positive(going down).
-  //     if(balls[i].vel.y < 0){
-  //       //the next round has to begin and the code has to add balls.
-  //       //I have to chaqnge the score so that it equals the next amount of balls
-  //       if(nextround > 0){
-  //         number = number + 5;
-  //         stage = stage + 1
-  //         nextround = nextround - 1
-  //         balls = []
-  //         loadballs(number)
-  //       }
-  //     }
-  //     balls.splice(i,1);
-  //     score = score + 1
-  //   }
-  // }
-  fill(255);
-  text('Your Score is ' + score,10,90)
-  fill(255);
-  text('its round ' + stage + '.', 10, 60);
+  //this is the screen that pops up whenever the ball goes past the boundaries and the game ends
   if(endgame === true){
-    fill(255,0,0);
-    text('GAME OVER! Your score was ' + score, 350, 400);
+    background(0)
+    fill(255);
+    rect(100,100,600,600)
+    fill(200,0,0);
+    rect(200,200,400,400)
+    fill(255);
+    textSize(30)
+    text('GAME OVER!',300,400)
+    text('Your score was ' + score, 275, 450);
+    startgame = false;
   }
-  // if(nextround == 5 && balls.length > 0){
-  //   fill(255,0,0);
-  //   text('GAME OVER! Your score was ' + score, 350, 400);
-  // }
-  function endScreen(){
-    if(endgame === true){
-      for(var i = 0; i < balls.length; i++){
-        ball.loc = 2893465,2389456
-        paddle.loc = 3845,23562
-        paddle2.loc = 1245235,23542354
+  function points(){
+    //this projects the score and stage on the screen
+    fill(255);
+    textSize(15)
+    text('Your Score is ' + score,10,90)
+    fill(255);
+    textSize(15)
+    text('its round ' + stage + '.', 10, 60);
+  }
+  function levelSpeed(){
+    for(var i = 0 ; i < balls.length; i++){
+      if(score === 5){
+        stage =2 
+        balls[i].vel.y = 10
       }
     }
   }

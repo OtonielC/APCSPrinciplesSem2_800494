@@ -19,10 +19,8 @@ function ball (loc, vel, col, rad){
   }
   //this function will create updates to the balls and eventually
   //the code will be able to detect when the balls touch the Paddle
-  //and then the balls will reset and multiply
   this.update = function(){
     this.loc.add(this.vel);
-    // this.vel.add(this.acc)
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < paddle.loc.x + 140 &&
       this.loc.y > paddle.loc.y &&
