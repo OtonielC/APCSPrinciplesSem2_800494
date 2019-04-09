@@ -37,7 +37,6 @@ function ball (loc, vel, col, rad){
           score+=1
         }
       }
-
       //the check edges function will set the speed and will also make sure that the balls
       //dont exit the area that the game is playing in.
       this.checkEdges = function(){

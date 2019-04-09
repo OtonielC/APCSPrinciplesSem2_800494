@@ -10,6 +10,7 @@ var stage = 1;
 var score = 0;
 var endgame = false;
 var startgame = true;
+var pause = false;
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -34,16 +35,20 @@ function draw() {
     textSize(30)
     fill(0)
     text('Press ENTER to begin!!',250 ,400)
+    if(pause === false){
     if(keyCode === ENTER){
       background(20, 20, 20);
       paddle.run();
       paddle2.run();
       points();
-      // levelSpeed();
       numberofballs = 'there are ' + balls.length + ' balls'
       for(var i = 0 ; i < balls.length; i++){
         balls[i].run();
+        }
       }
+    }
+    if(keyCode === SHIFT){
+      pause!=pause
     }
   }
   //this is the screen that pops up whenever the ball goes past the boundaries and the game ends
@@ -63,17 +68,17 @@ function draw() {
     //this projects the score and stage on the screen
     fill(255);
     textSize(15)
-    text('Your Score is ' + score,10,90)
+    text('Your Score is ' + score + '.',10,90)
     fill(255);
     textSize(15)
     text('its round ' + stage + '.', 10, 60);
   }
-  function levelSpeed(){
-    for(var i = 0 ; i < balls.length; i++){
-      if(score === 5){
-        stage =2 
-        balls[i].vel.y = 10
-      }
+  //this checks whether the score is an iteration of 5 AND adds 1 to the score whenever
+  //this is true
+  this.levelSpeed = function(){
+    if(score%5 === 0){
+      stage+=1
+      this.vel+=5
     }
   }
 }
