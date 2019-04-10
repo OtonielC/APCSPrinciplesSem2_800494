@@ -11,6 +11,7 @@ var score = 0;
 var endgame = false;
 var startgame = true;
 var pause = false;
+collision = false;
 //  The setup function function is called once when your program begins
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -41,6 +42,8 @@ function draw() {
       paddle.run();
       paddle2.run();
       points();
+      levelSpeed();
+      console.log(collision);
       numberofballs = 'there are ' + balls.length + ' balls'
       for(var i = 0 ; i < balls.length; i++){
         balls[i].run();
@@ -75,8 +78,8 @@ function draw() {
   }
   //this checks whether the score is an iteration of 5 AND adds 1 to the score whenever
   //this is true
-  this.levelSpeed = function(){
-    if(score%5 === 0){
+  function levelSpeed(){
+    if(score%5 === 0 && collision === true){
       stage+=1
       this.vel+=5
     }
