@@ -44,6 +44,7 @@ function draw() {
       points();
       levelSpeed();
       console.log(collision);
+      console.log(balls.vel);
       numberofballs = 'there are ' + balls.length + ' balls'
       for(var i = 0 ; i < balls.length; i++){
         balls[i].run();
@@ -81,7 +82,6 @@ function draw() {
   function levelSpeed(){
     if(score%5 === 0 && collision === true){
       stage+=1
-      this.vel+=5
     }
   }
 }

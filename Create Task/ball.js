@@ -24,27 +24,25 @@ function ball (loc, vel, col, rad){
     if(this.loc.x > paddle.loc.x &&
       this.loc.x < paddle.loc.x + 140 &&
       this.loc.y > paddle.loc.y &&
-      this.loc.y < paddle.loc.y + 30 &&
-      this.vel.y > 0){
-        this.vel.y = -this.vel.y
+      this.loc.y < paddle.loc.y + 30){
         score+=1
+        this.vel.x +=5
         collision = true
+        this.vel.y = -this.vel.y
       }
-    else{
-      collision = false
-    }
-      if(this.loc.x > paddle2.loc.x &&
+      else if(this.loc.x > paddle2.loc.x &&
         this.loc.x < paddle2.loc.x + 140 &&
         this.loc.y > paddle2.loc.y &&
         this.loc.y < paddle2.loc.y + 30){
-          this.vel.y = -this.vel.y
           score+=1
+          this.vel.y +=5
           collision = true
+          this.vel.y = -this.vel.y
         }
-      else{
-        collision = false
+        else{
+          collision = false
+        }
       }
-    }
       //the check edges function will set the speed and will also make sure that the balls
       //dont exit the area that the game is playing in.
       this.checkEdges = function(){

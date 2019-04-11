@@ -18,7 +18,7 @@ function Paddle2(loc, col, vel){
 //i wil also lerp the paddle to the mouse so the locations are the same but lagged.
   this.update = function(){
        var mouseloc = createVector(mouseX, 20);
-       this.loc = p5.Vector.lerp(this.loc, mouseloc, .5);
+       this.loc = p5.Vector.lerp(this.loc, mouseloc, .3);
 }
 this.checkEdges = function(){
   if(this.loc.x < 0) this.vel.x = -this.vel.x;
