@@ -1,7 +1,6 @@
 
 //Paddle Game
-//Otoniel Carreon
-//10/4/18
+//4/12/19
 var nextround = 4;
 var number = 1;
 var balls = [];
