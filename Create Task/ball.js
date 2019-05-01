@@ -35,9 +35,9 @@ function ball (loc, vel, col, rad){
         this.loc.y > paddle2.loc.y &&
         this.loc.y < paddle2.loc.y + 30){
           score+=1
-          this.vel.y +=5
-          collision = true
+          // this.vel.y +=5
           this.vel.y = -this.vel.y
+          collision = true
         }
         else{
           collision = false
