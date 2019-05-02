@@ -41,7 +41,8 @@ function draw() {
       paddle.run();
       paddle2.run();
       points();
-      levelSpeed();
+      levelNumber();
+      end_Game();
       console.log(collision);
       console.log(balls.vel);
       numberofballs = 'there are ' + balls.length + ' balls'
@@ -55,8 +56,11 @@ function draw() {
     }
   }
   //this is the screen that pops up whenever the ball goes past the boundaries and the game ends
+function end_Game(){
   if(endgame === true){
+    //sets background black
     background(0)
+    //sets two more screens as rectangles to make end screen look better
     fill(255);
     rect(100,100,600,600)
     fill(200,0,0);
@@ -64,9 +68,11 @@ function draw() {
     fill(255);
     textSize(30)
     text('GAME OVER!',300,400)
+    //after game is over shows score and stops the whole program
     text('Your score was ' + score, 275, 450);
     startgame = false;
   }
+}
   function points(){
     //this projects the score and stage on the screen
     fill(255);
@@ -78,7 +84,7 @@ function draw() {
   }
   //this checks whether the score is an iteration of 5 AND adds 1 to the score whenever
   //this is true
-  function levelSpeed(){
+  function levelNumber(){
     if(score%5 === 0 && collision === true){
       stage+=1
     }
@@ -90,7 +96,7 @@ function draw() {
 function loadballs(number){
   for(var i = 0; i < number; i++){
     var loc = createVector(200,200);
-    var vel = createVector(6,6);
+    var vel = createVector(5*stage,6*stage);
     var col = color(random(255), random(255), random(255));
     var rad = (20);
     var b = new ball(loc, vel, col, rad);
