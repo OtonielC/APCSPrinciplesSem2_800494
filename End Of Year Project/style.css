@@ -1,3 +1,12 @@
+head {
+  background-color: #008000;
+}
 body {
-  background-color: #2c6dd6
+  background-color: #2c6dd6;
+}
+#title{
+  border: 10px solid black;
+}
+#top_middle{
+  background-color: #66cccc;
 }
