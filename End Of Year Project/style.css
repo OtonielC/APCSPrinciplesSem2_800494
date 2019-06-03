@@ -11,10 +11,10 @@ body {
 }
 #top_middle{
   background-color: #66cccc;
+  text-align: center;
   font-size: 50px;
   length: 1000px;
   width: 1000px;
-  text-align: center;
   border: solid black 1px;
 }
 #topimage{
@@ -22,6 +22,25 @@ body {
   length: 800px;
 }
 #image_top{
+  length: 2000px;
   image-orientation: center;
-  image: length 2000px;
+}
+#links{
+  font-size: 50px;
+  text-align: center;
+  border: solid black 1px;
+}
+#wrapper{
+  text-align: center;
+}
+#button {
+  margin-top: 20px;
+  line-height: 60px;
+  font-weight: bold;
+  padding: 0 40px;
+  background: salmon;
+  border: none;
+}
+#button:hover {
+  background: lightsalmon;
 }
