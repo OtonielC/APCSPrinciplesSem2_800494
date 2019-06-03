@@ -1,46 +1,54 @@
-head {
-  background-color: #008000;
-}
 body {
   background-color: #2c6dd6;
 }
 #title{
+  height:150px;
+  width:1100px;
   background-color: pink;
   text-align: center;
   font-size: 50px
 }
-#top_middle{
-  background-color: #66cccc;
+#middle{
+  background-color: yellow;
   text-align: center;
-  font-size: 50px;
-  length: 1000px;
-  width: 1000px;
+  font-size: 20px;
+  height: 600px;
+  width: 1100px;
   border: solid black 1px;
 }
-#topimage{
-  width: 800px;
-  length: 800px;
-}
 #image_top{
-  length: 2000px;
-  image-orientation: center;
+  background-color: purple;
 }
 #links{
-  font-size: 50px;
-  text-align: center;
+  background-color: green;
+  height:60px;
+  width:1100px;
+  font-size: 12px;
   border: solid black 1px;
 }
 #wrapper{
+  background-color: blue;
+  height:900px;
+  width:1101px;
+  border:solid black 3px;
+  margin:auto;
   text-align: center;
 }
-#button {
-  margin-top: 20px;
-  line-height: 60px;
+
+#motIMage{
+  height:10px;
+}
+.buttons {
+  height:30px;
+  width:100px;
   font-weight: bold;
   padding: 0 40px;
   background: salmon;
-  border: none;
+  border: solid black 1px;
+  float:left;
+  margin-left: 32px;
+  margin-top: 12.5px;
 }
-#button:hover {
-  background: lightsalmon;
+.buttons:hover {
+  background: pink;
 }
